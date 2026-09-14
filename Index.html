@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Заголовок</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        <style>
+            .header{
+                color:aquamarine;
+                font-size: 30px;
+                padding: 20px 40px;
+            }
+            .fix-top-right{
+                position: fixed;
+                right: 0;
+                top: 0;
+            }
+        </style>
+        <script>
+            console.log('Hello? world')
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <h1 style="color:blueviolet" class="fix-top-right">Заголовок 1</h1>
+        <p>Это текст</p>
+        <a href="./Index.html">Ссылка</a>
+        <div id="myDiv" class="header">
+            1234
+
+        </div>
+        <button id="btn">Кнопка</button>
+        <input type="text" id="text" name="text" placeholder="Введите что-нибудь">
+        <script>
+            let a = 10
+            let b = 20 //var сейчас не используется, ранее это глобальная переменная была
+            let int = null
+
+            const elem = document.getElementById('myDiv')
+            console.log(elem)
+            
+
+            const btn = document.getElementById('btn')
+            btn.addEventListener('click', () => {
+                if (int) {
+                    clearInterval(int)
+                    int=null
+                } else {
+                    int = setInterval(() => {
+                        elem.innerHTML = a++;
+                    }, 100)
+                }
+            })
+        </script>
+    </body>
+</html>
