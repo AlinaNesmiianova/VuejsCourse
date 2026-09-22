@@ -1,17 +1,11 @@
 <!-- Это компонент, последовательность такая: -->
 <template> <!-- Сначала структура -->
-  <h1>Не может быть, ({{ value }})!</h1>
-  <CheckboxComp :way="1" @change="(v) => addValue(v)"
-  </CheckboxComp>/>
-  <CheckboxComp :way="2"/>
-  <CheckboxComp :way="123"/> <!-- Это-->
-  <CheckboxComp />
-  <CheckboxComp />
+  <RouterView />
 </template>
 
 <!-- Затем логика -->
 <script setup lang="ts"> 
-import { ref } from 'vue'
+import { ref, onBeforeMount, onMounted } from 'vue'
 import CheckboxComp from '@/components/Checkbox.vue'
 
 const value = ref(0) 
@@ -23,6 +17,15 @@ const props = defineProps ({ // Объявление входных параме
     default: 0,
     type: Number,
   }
+})
+
+onBeforeMount(()=> { // выполняется хук, монтируется в страницу: монтируется в глубину дочерние элементы
+  console.log('onBeforeMount')
+  var t = 1 
+})
+
+onMounted(()=> { //выполняется после
+  console.log('Checkbox', props.way)
 })
 </script> 
 
